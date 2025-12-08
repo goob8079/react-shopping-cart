@@ -1,0 +1,3 @@
+.navContainer {
+    composes: navContainer from '../homepage/Homepage.module.css';
+}
