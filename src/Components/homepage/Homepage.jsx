@@ -3,7 +3,7 @@ import styles from './Homepage.module.css';
 
 export default function Homepage() {
     return (
-        <div className='homepage'>
+        <div className={styles.homepage}>
             <nav className={styles.navContainer}>
                 <Link to='/homepage'>Homepage</Link>
                 <Link to='/shop'>Shop</Link>
@@ -12,6 +12,7 @@ export default function Homepage() {
             <div className={styles.titleContainer}>
                 <h1>The Awesome Shop</h1>
                 <h2>Welcome to our shop!</h2>
+                <p>This is where we sell things and stuff</p>
             </div>
         </div>
     );

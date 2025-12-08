@@ -1,14 +1,30 @@
+.homepage {
+    height: 100vh;
+}
+
 .navContainer {
-    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    display: flex; justify-content: space-between; align-items: center;
     max-width: 100%;
-    padding: 12px;
+    background-color: #99c7f5;
+    overflow: auto; 
+    
+    a {
+        display: flex; justify-content: center; align-items: center;
+        float: left;
+        padding: 12px;
+        color: #000000;
+        text-decoration: none;
+        font-size: 20px; 
+        width: 33%;
+    }
+    
+    a:hover {
+        background-color: #52a8ff;
+    }
 }
 
 .titleContainer {
     display: flex; flex-direction: column; justify-content: center; align-items: center;
-    width: 100vw;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-
+    max-width: 100%;
+    margin: 0 auto; padding: 8px;
 }
