@@ -1,0 +1,14 @@
+.navContainer {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    max-width: 100%;
+    padding: 12px;
+}
+
+.titleContainer {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    width: 100vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
