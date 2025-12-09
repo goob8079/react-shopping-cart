@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ItemCounter from '../ItemCounter/ItemCounter';
 import styles from './ProductCard.module.css';
 
 export default function ProductCard({
@@ -39,6 +40,12 @@ export default function ProductCard({
                 <img src={image} />
                 <h3>{title}</h3>
                 <p>{description}</p>
+                <ItemCounter 
+                    amount={amount}
+                    onAmountChange={(e) => handleAmountChange(e)}
+                    onIncrease={handleIncrease}
+                    onDecrease={handleDecrease}
+                />
             </div>
             <div>
                 <p>{category}</p>

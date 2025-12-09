@@ -5,7 +5,7 @@ import useProductAPI from '../../hooks/useProductsAPI';
 import ProductCard from '../ProductCard/ProductCard';
 
 export default function ShopPage() {
-    const { products, error, loading, onClickAddToCart } = useProductAPI();
+    const { products, error, loading } = useProductAPI();
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>A Network error was encountered</p>;
@@ -24,7 +24,7 @@ export default function ShopPage() {
                         <ProductCard 
                             key={product.id}
                             {...product}
-                            onClickAddToCart={onClickAddToCart}
+                            onClickAddToCart={}
                         />
                     )
                 })}
