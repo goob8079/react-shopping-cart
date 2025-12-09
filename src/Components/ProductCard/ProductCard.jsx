@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import ItemCounter from '../ItemCounter/ItemCounter';
-import styles from './ProductCard.module.css';
+// import styles from './ProductCard.module.css';
 
 export default function ProductCard({
     id,
@@ -12,6 +11,12 @@ export default function ProductCard({
     addToCart
 }) {
     const [amount, setAmount] = useState(1);
+    const product = { 
+        id: id,
+        image: image,
+        title: title,
+        price: price
+    };
 
     function handleAmountChange(e) {
         let value = e.target.value;
@@ -36,22 +41,20 @@ export default function ProductCard({
 
     return (
         <section>
-            <div>
+            <div className='top'>
                 <img src={image} />
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <ItemCounter 
-                    amount={amount}
-                    onAmountChange={(e) => handleAmountChange(e)}
-                    onIncrease={handleIncrease}
-                    onDecrease={handleDecrease}
-                />
             </div>
-            <div>
+            <div className='footer'>
                 <p>{category}</p>
                 <p>${price.toFixed(2)}</p>
+                <p>Amount: {amount}</p>
+                <button onClick={handleIncrease}>+</button>
+                <button onClick={handleDecrease}>-</button>
+                <br />
                 <button onClick={() => {
-                    addToCart(id, amount);
+                    addToCart(product);
                     setAmount(1);
                 }}>
                     Add to Cart
