@@ -1,12 +1,9 @@
-import { Link } from 'react-router';
-import styles from './CartPage.module.css';
+import { Link, useOutletContext } from 'react-router';
+import styles from './Cart.module.css';
 
-export default function CartPage({
-    cart,
-    setCart,
-    deleteFromCart,
-    totalCostCalculation,
-}) {
+export default function Cart() {
+    const { cart, setCart, deleteFromCart, totalCostCalculation } = useOutletContext();
+
     return (
         <div className='cart'>
             <nav className={styles.navContainer}>
@@ -15,7 +12,7 @@ export default function CartPage({
                 <Link to='/cart'>Cart</Link>
             </nav>
             <div className='cart-screen'>
-                <h2>My Cart</h2>
+                <p><strong>My Cart</strong></p>
                 {cart.length === 0 ? (
                     <p className='empty-cart'>Your cart is empty!</p>
                 ) : (
