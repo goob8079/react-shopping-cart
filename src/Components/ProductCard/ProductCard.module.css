@@ -10,6 +10,47 @@
     }
 }
 
+.footer {
+    
+    button {
+        margin: 6px; padding: 8px;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+}
+
+.overlay { 
+    position: fixed; inset: 0;
+    display: flex; justify-content: center; align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .closeBtn:hover {
+  color: orange;
+}
+
 @media (max-width: 600px) {
     .productCard {
         max-width: 95%;

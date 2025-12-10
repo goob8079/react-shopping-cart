@@ -4,8 +4,8 @@ import ProductCard from '../ProductCard/ProductCard';
 
 export default function ShopPage() {
     const { products, error, loading, handleAddToCart } = useOutletContext();
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>A Network error was encountered</p>;
+    if (loading) return <p className={styles.loading}>Loading...</p>;
+    if (error) return <p className={styles.error}>A Network error was encountered</p>;
 
     return (
         <div className={styles.shopPage}>

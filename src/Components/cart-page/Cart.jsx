@@ -28,7 +28,7 @@ export default function Cart() {
                                                 </div>
                                                 <div className='item-details'>
                                                     <h3>{item.product.title}</h3>
-                                                    <p>Price: {item.product.price}</p>
+                                                    <p>Price: {item.product.price.toFixed(2)}</p>
                                                 </div>
                                             </div>
                                             <div className='item-actions'>

@@ -3,6 +3,7 @@ import styles from './ProductCard.module.css';
 
 export default function ProductCard({ product, handleAddToCart }) {
     const [amount, setAmount] = useState(1);
+    const [showOverlay, setShowOverlay] = useState(false);
 
     function handleIncrease() {
         setAmount(prevAmount => prevAmount + 1);
@@ -12,6 +13,15 @@ export default function ProductCard({ product, handleAddToCart }) {
         setAmount(prevAmount => (prevAmount <= 1 ? 1 : prevAmount - 1));
     }
 
+    function handleAdd() {
+        handleAddToCart(product, amount);
+        setAmount(1);
+        setShowOverlay(true);
+
+        // auto-close after 1 second
+        setTimeout(() => setShowOverlay(false), 1000);
+    }
+
     return (
         <section className={styles.productCard}>
             <div className='top'>
@@ -19,20 +29,26 @@ export default function ProductCard({ product, handleAddToCart }) {
                 <h3>{product.title}</h3>
                 <p>{product.description}</p>
             </div>
-            <div className='footer'>
+            <div className={styles.footer}>
                 <p>{product.category}</p>
                 <p>${product.price.toFixed(2)}</p>
                 <p>Amount: {amount}</p>
                 <button onClick={handleIncrease}>+</button>
                 <button onClick={handleDecrease}>-</button>
                 <br />
-                <button onClick={() => {
-                    handleAddToCart(product, amount);
-                    setAmount(1);
-                }}>
-                    Add to Cart
-                </button>
+                <button onClick={handleAdd}>Add to Cart</button>
             </div>
+            {showOverlay && (
+                <div className={styles.overlay}>
+                    <div className={styles.popup}>
+                        Item added to cart!
+                        <button 
+                            className={styles.closeBtn} 
+                            onClick={() => setShowOverlay(false)}
+                        >x</button>
+                    </div>
+                </div>
+            )}
         </section>
     )
 }

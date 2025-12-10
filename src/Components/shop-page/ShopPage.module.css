@@ -19,6 +19,13 @@
     width: 90%;
 }
 
+.loading, .error {
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh;
+    font-size: 100px;
+    text-align: center;
+}
+
 @media (max-width: 600px) {
     .shop {
         display: grid; justify-content: center; align-items: center;
