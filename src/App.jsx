@@ -7,7 +7,7 @@ function App() {
   const { products, error, loading } = useProductAPI();
   const [cart, setCart] = useState([]);
 
-  function handleAddToCart(product) {
+  function handleAddToCart(product, amount) {
       const alreadyInCart = cart.find(item => item.product.id === product.id);
 
       if (alreadyInCart) {
@@ -18,7 +18,7 @@ function App() {
           );
           setCart(updatedCart);
       } else {
-          setCart([...cart, {product: product, amount: 1}]);
+          setCart([...cart, {product: product, amount: amount}]);
       }
   }
 
@@ -28,7 +28,7 @@ function App() {
   }
 
   function totalCostCalculation() {
-      return cart.reduce((total, item) => total + item.product.price * item.amount, 0);
+      return cart.reduce((total, item) => total + item.product.price * item.amount, 0).toFixed(2);
   }
 
   // using Outlet to provide props (outlet context) to children (rest of the pages)

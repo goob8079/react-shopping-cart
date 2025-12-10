@@ -21,8 +21,8 @@ const routes = [
             {
                 path: 'shop',
                 element: <ShopPage />
-            }
-        ]
+            },
+        ],
     }
 ];
 

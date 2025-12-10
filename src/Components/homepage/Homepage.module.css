@@ -1,10 +1,14 @@
 .homepage {
     height: 100vh;
+    overflow-x: hidden;
 }
 
 .navContainer {
+    position: sticky; top: 0;
+    z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
-    max-width: 100%;
+    box-sizing: border-box;
+    width: 100vw;
     background-color: #99c7f5;
     overflow: auto; 
     

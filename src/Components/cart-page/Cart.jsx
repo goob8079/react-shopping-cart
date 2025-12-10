@@ -19,59 +19,49 @@ export default function Cart() {
                     <div>
                         <ul>
                             {cart.map((item) => {
-                                <li key={item.product.id} className='cart-item'>
-                                    <div>
-                                        <div className='item-info'>
-                                            <div className='item-top'>
-                                                <img src={item.product.image} alt={item.product.title} />
-                                                <h3>{item.product.title}</h3>
-                                            </div>
-                                            <div className='item-details'>
-                                                <p>${item.product.price}</p>
-                                            </div>
-                                        </div>
+                                return (
+                                    <li key={item.product.id} className='cart-item'>
                                         <div>
+                                            <div className='item-info'>
+                                                <div className='item-img'>
+                                                    <img src={item.product.image} alt={item.product.title} />
+                                                </div>
+                                                <div className='item-details'>
+                                                    <h3>{item.product.title}</h3>
+                                                    <p>Price: {item.product.price}</p>
+                                                </div>
+                                            </div>
                                             <div className='item-actions'>
-                                                <button 
-                                                    onClick={() => deleteFromCart(item.product)}
-                                                >
-                                                    Remove Product
+                                                <button className='remove-btn' onClick={() => deleteFromCart(item.product)}>
+                                                    Remove Item
                                                 </button>
-                                                <div className='amount'>
-                                                    <button 
-                                                        onClick={(e) => {
-                                                            setCart((prevCart) => {
-                                                                const updatedCart = prevCart.map((prevItem) => {
-                                                                    prevItem.product.id === item.product.id ?
-                                                                    { ...prevItem, amount: item.amount + 1 }
-                                                                    : prevItem
-                                                                });
-                                                                return updatedCart;
-                                                            })
-                                                        }}
-                                                    >
-                                                        +
-                                                    </button>
-                                                    <p className='quant'>{item.amount}</p>
-                                                    <button
-                                                        onClick={(e) => {
-                                                            setCart((prevCart) => {
-                                                                const updatedCart = prevCart.map((prevItem) => 
-                                                                    prevItem.product.id === item.product.id ?
-                                                                    { ...prevItem, amount: Math.max(item.amount - 1, 0) }
-                                                                    : prevItem
-                                                                );
+                                                <div className='quantity'>
+                                                    <button onClick={() => {
+                                                        setCart((prevCart) => {
+                                                            const updatedCart = prevCart.map((prevItem) => 
+                                                                prevItem.product.id === item.product.id
+                                                                ? { ...prevItem, amount: item.amount + 1 }
+                                                                : prevItem
+                                                            );
                                                             return updatedCart;
-                                                            })
-                                                        }}
-                                                    >
-                                                        -
-                                                    </button>
+                                                        })
+                                                    }}>+</button>
+                                                    <p className='item-amount'>Amount: {item.amount}</p>
+                                                    <button onClick={() => {
+                                                        setCart((prevCart) => {
+                                                            const updatedCart = prevCart.map((prevItem) => 
+                                                                prevItem.product.id === item.product.id
+                                                                ? { ...prevItem, amount: Math.max(item.amount - 1, 0) }
+                                                                : prevItem
+                                                            );
+                                                            return updatedCart;
+                                                        })
+                                                    }}>-</button>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                );
                             })}
                         </ul>
                         <div className='checkout'>

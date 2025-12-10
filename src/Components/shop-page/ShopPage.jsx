@@ -8,20 +8,20 @@ export default function ShopPage() {
     if (error) return <p>A Network error was encountered</p>;
 
     return (
-        <div className='shop'>
+        <div className={styles.shopPage}>
             <nav className={styles.navContainer}>
                 <Link to='/homepage'>Homepage</Link>
                 <Link to='/shop'>Shop</Link>
                 <Link to='/cart'>Cart</Link>
             </nav>
-            <h2>Shop</h2>
-            <div>
+            <h2 className={styles.shopTitle}>Products</h2>
+            <div className={styles.shop}>
                 {products.map((product) => {
                     return (
                         <ProductCard 
                             key={product.id}
-                            {...product}
-                            addToCart={handleAddToCart}
+                            product={product}
+                            handleAddToCart={handleAddToCart}
                         />
                     )
                 })}

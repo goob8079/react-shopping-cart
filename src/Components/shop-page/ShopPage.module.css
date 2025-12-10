@@ -1,3 +1,28 @@
 .navContainer {
     composes: navContainer from '../homepage/Homepage.module.css';
 }
+
+.shopPage {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.shopTitle {
+    padding: 16px;
+}
+
+.shop {
+    display: grid; justify-content: center; gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+    margin: 0 auto;
+    width: 90%;
+}
+
+@media (max-width: 600px) {
+    .shop {
+        display: grid; justify-content: center; align-items: center;
+        grid-template-columns: 1fr; 
+        margin: 0 auto;
+    }
+}
