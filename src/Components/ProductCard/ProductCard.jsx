@@ -32,9 +32,11 @@ export default function ProductCard({ product, handleAddToCart }) {
             <div className={styles.footer}>
                 <p>{product.category}</p>
                 <p>${product.price.toFixed(2)}</p>
-                <p>Amount: {amount}</p>
-                <button onClick={handleIncrease}>+</button>
-                <button onClick={handleDecrease}>-</button>
+                <div className={styles.amount}>
+                    <button onClick={handleIncrease}>+</button>
+                    <p>Amount: {amount}</p>
+                    <button onClick={handleDecrease}>-</button>
+                </div>
                 <br />
                 <button onClick={handleAdd}>Add to Cart</button>
             </div>

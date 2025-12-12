@@ -16,7 +16,14 @@
 .featured {
     display: grid; justify-content: center; gap: 16px;
     grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
-    max-width: 90%; height: 50%;
+    max-width: 90%; height: 10%;
     margin: 0 auto;
-    font-size: 1em;
+    font-size: 1rem;
+}
+
+@media (max-width: 800px) {
+    .featured {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
 }

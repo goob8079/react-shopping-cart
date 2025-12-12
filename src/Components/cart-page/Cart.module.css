@@ -1,3 +1,52 @@
+.cartPage {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    width: 100%; height: 100vh;
+}
+
+.cart {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.cartList {
+    display: grid; justify-content: center; gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(15%, 1fr));
+    text-align: center;
+}
+
+.cartItem {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    max-width: 100%;
+    padding: 12px;
+    background-color: #d6d6d6;
+    border-radius: 20px;
+    text-align: center;
+    list-style: none;
+
+    img {
+        width: 60%;
+    }
+}
+
+.itemActions {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+
+    .quantity {
+        display: flex; justify-content: center; align-items: center; gap: 12px;
+    }
+}
+
+.checkout {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    font-size: x-large;
+    margin-bottom: 12px;
+
+    button {
+        width: 10%; height: 40px;
+    }
+}
+
 .overlay {
     composes: overlay from '../ProductCard/ProductCard.module.css';
 }

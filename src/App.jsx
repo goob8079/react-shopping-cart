@@ -1,11 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router';
 import useProductAPI from './hooks/useProductsAPI';
 import styles from './App.module.css';
 
 function App() {
   const { products, error, loading } = useProductAPI();
-  const [cart, setCart] = useState([]);
+  // cart items (data) persists even after refreshing by utilizing localStorage
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  // when cart updates, it gets saved in localStorage
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   function handleAddToCart(product, amount) {
     const alreadyInCart = cart.find(item => item.product.id === product.id);

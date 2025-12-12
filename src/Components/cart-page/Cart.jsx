@@ -14,17 +14,17 @@ export default function Cart() {
     }
 
     return (
-        <div className='cart'>
-            <div className='cart-screen'>
-                <p><strong>My Cart</strong></p>
+        <div className={styles.cartPage}>
+            <h2>My Cart</h2>
+            <div className={styles.cart}>
                 {cart.length === 0 ? (
                     <p className='empty-cart'>Your cart is empty!</p>
                 ) : (
                     <div>
-                        <ul>
+                        <ul className={styles.cartList}>
                             {cart.map((item) => {
                                 return (
-                                    <li key={item.product.id} className='cart-item'>
+                                    <li key={item.product.id} className={styles.cartItem}>
                                         <div>
                                             <div className='item-info'>
                                                 <div className='item-img'>
@@ -35,11 +35,8 @@ export default function Cart() {
                                                     <p>Price: {item.product.price.toFixed(2)}</p>
                                                 </div>
                                             </div>
-                                            <div className='item-actions'>
-                                                <button className='remove-btn' onClick={() => handleDeleteFromCart(item.product)}>
-                                                    Remove Item
-                                                </button>
-                                                <div className='quantity'>
+                                            <div className={styles.itemActions}>
+                                                <div className={styles.quantity}>
                                                     <button onClick={() => {
                                                         setCart((prevCart) => {
                                                             const updatedCart = prevCart.map((prevItem) => 
@@ -55,12 +52,17 @@ export default function Cart() {
                                                         setCart((prevCart) => {
                                                             const updatedCart = prevCart.map((prevItem) => 
                                                                 prevItem.product.id === item.product.id
-                                                                ? { ...prevItem, amount: Math.max(item.amount - 1, 0) }
+                                                                ? { ...prevItem, amount: Math.max(item.amount - 1, 1) }
                                                                 : prevItem
                                                             );
                                                             return updatedCart;
                                                         })
                                                     }}>-</button>
+                                                </div>
+                                                <div>
+                                                    <button className='remove-btn' onClick={() => handleDeleteFromCart(item.product)}>
+                                                        Remove Item
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -68,7 +70,7 @@ export default function Cart() {
                                 );
                             })}
                         </ul>
-                        <div className='checkout'>
+                        <div className={styles.checkout}>
                             <div className='checkout-total'>
                                 <p className='total'>Total Cost: ${totalCostCalculation()}</p>
                             </div>
@@ -78,7 +80,7 @@ export default function Cart() {
                                 disabled={cart.length === 0 || totalCostCalculation() === 0}
                                 onClick={handleCheckout}
                             >
-                                Proceed to Payment
+                                Purchase Items
                             </button>
                         </div>
                     </div>
