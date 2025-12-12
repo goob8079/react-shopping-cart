@@ -1,0 +1,26 @@
+html, body {
+    margin: 0; padding: 0;
+}
+
+.navContainer {
+    position: sticky; top: 0;
+    z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #99c7f5;
+    overflow: auto; 
+    
+    a {
+        flex: 1;
+        display: flex; justify-content: center; align-items: center;
+        padding: 12px;
+        color: #000000;
+        text-decoration: none;
+        font-size: 20px; 
+    }
+    
+    a:hover {
+        background-color: #52a8ff;
+    }
+}

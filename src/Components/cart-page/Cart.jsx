@@ -1,16 +1,20 @@
 import { Link, useOutletContext } from 'react-router';
 import styles from './Cart.module.css';
+import { useState } from 'react';
 
 export default function Cart() {
-    const { cart, setCart, deleteFromCart, totalCostCalculation } = useOutletContext();
+    const { cart, setCart, handleDeleteFromCart, totalCostCalculation } = useOutletContext();
+    const [showOverlay, setShowOverlay] = useState(false);
+
+    function handleCheckout() {
+        setCart([]);
+        setShowOverlay(true);
+
+        setTimeout(() => setShowOverlay(false), 1000);
+    }
 
     return (
         <div className='cart'>
-            <nav className={styles.navContainer}>
-                <Link to='/homepage'>Homepage</Link>
-                <Link to='/shop'>Shop</Link>
-                <Link to='/cart'>Cart</Link>
-            </nav>
             <div className='cart-screen'>
                 <p><strong>My Cart</strong></p>
                 {cart.length === 0 ? (
@@ -32,7 +36,7 @@ export default function Cart() {
                                                 </div>
                                             </div>
                                             <div className='item-actions'>
-                                                <button className='remove-btn' onClick={() => deleteFromCart(item.product)}>
+                                                <button className='remove-btn' onClick={() => handleDeleteFromCart(item.product)}>
                                                     Remove Item
                                                 </button>
                                                 <div className='quantity'>
@@ -68,9 +72,11 @@ export default function Cart() {
                             <div className='checkout-total'>
                                 <p className='total'>Total Cost: ${totalCostCalculation()}</p>
                             </div>
+                            {/* have button disabled when the cart length or total cost = 0 */}
                             <button 
                                 className='checkout-btn' 
                                 disabled={cart.length === 0 || totalCostCalculation() === 0}
+                                onClick={handleCheckout}
                             >
                                 Proceed to Payment
                             </button>
@@ -78,6 +84,17 @@ export default function Cart() {
                     </div>
                 )}
             </div>
+            {showOverlay && (
+                <div className={styles.overlay}>
+                    <div className={styles.popup}>
+                        Your item(s) has been purchased!
+                        <button 
+                            className={styles.closeBtn}
+                            onClick={() => setShowOverlay(false)}
+                        >x</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

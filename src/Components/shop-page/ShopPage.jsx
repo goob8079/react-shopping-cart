@@ -9,11 +9,6 @@ export default function ShopPage() {
 
     return (
         <div className={styles.shopPage}>
-            <nav className={styles.navContainer}>
-                <Link to='/homepage'>Homepage</Link>
-                <Link to='/shop'>Shop</Link>
-                <Link to='/cart'>Cart</Link>
-            </nav>
             <h2 className={styles.shopTitle}>Products</h2>
             <div className={styles.shop}>
                 {products.map((product) => {

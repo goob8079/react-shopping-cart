@@ -1,30 +1,5 @@
 .homepage {
     height: 100vh;
-    overflow-x: hidden;
-}
-
-.navContainer {
-    position: sticky; top: 0;
-    z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    box-sizing: border-box;
-    width: 100vw;
-    background-color: #99c7f5;
-    overflow: auto; 
-    
-    a {
-        display: flex; justify-content: center; align-items: center;
-        float: left;
-        padding: 12px;
-        color: #000000;
-        text-decoration: none;
-        font-size: 20px; 
-        width: 33%;
-    }
-    
-    a:hover {
-        background-color: #52a8ff;
-    }
 }
 
 .titleContainer {
@@ -41,6 +16,7 @@
 .featured {
     display: grid; justify-content: center; gap: 16px;
     grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
-    max-width: 90%;
+    max-width: 90%; height: 50%;
     margin: 0 auto;
+    font-size: 1em;
 }

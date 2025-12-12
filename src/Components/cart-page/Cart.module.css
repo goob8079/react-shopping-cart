@@ -1,3 +1,16 @@
-.navContainer {
-    composes: navContainer from '../homepage/Homepage.module.css';
+.overlay {
+    composes: overlay from '../ProductCard/ProductCard.module.css';
+}
+
+.popup {
+    composes: popup from '../ProductCard/ProductCard.module.css';
+}
+
+.closeBtn {
+    composes: closeBtn from '../ProductCard/ProductCard.module.css';
+}
+
+.closeBtn:hover {
+  color: orange;
+  cursor: pointer;
 }

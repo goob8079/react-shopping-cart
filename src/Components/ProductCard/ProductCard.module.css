@@ -1,6 +1,7 @@
 .productCard {
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     max-width: 100%;
+    padding: 12px;
     background-color: #d6d6d6;
     border-radius: 20px;
     text-align: center;
@@ -47,8 +48,9 @@
     color: #333;
 }
 
-.popup .closeBtn:hover {
+.closeBtn:hover {
   color: orange;
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {

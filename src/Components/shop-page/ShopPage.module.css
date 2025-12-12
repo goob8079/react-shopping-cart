@@ -1,11 +1,7 @@
-.navContainer {
-    composes: navContainer from '../homepage/Homepage.module.css';
-}
-
 .shopPage {
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     max-width: 100%;
-    overflow-x: hidden;
+    margin-bottom: 3rem;
 }
 
 .shopTitle {
