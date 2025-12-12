@@ -47,6 +47,11 @@
     }
 }
 
+.removeBtn {
+    display: flex; justify-content: center; align-items: center; gap: 4px;
+    text-align: center;
+}
+
 .overlay {
     composes: overlay from '../ProductCard/ProductCard.module.css';
 }

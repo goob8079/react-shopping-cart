@@ -10,7 +10,7 @@
 
 .shop {
     display: grid; justify-content: center; gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
     margin: 0 auto;
     width: 90%;
 }

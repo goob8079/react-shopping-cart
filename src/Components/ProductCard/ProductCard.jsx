@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styles from './ProductCard.module.css';
+
 
 export default function ProductCard({ product, handleAddToCart }) {
     const [amount, setAmount] = useState(1);
@@ -33,9 +34,9 @@ export default function ProductCard({ product, handleAddToCart }) {
                 <p>{product.category}</p>
                 <p>${product.price.toFixed(2)}</p>
                 <div className={styles.amount}>
-                    <button onClick={handleIncrease}>+</button>
-                    <p>Amount: {amount}</p>
                     <button onClick={handleDecrease}>-</button>
+                    <p>Amount: {amount}</p>
+                    <button onClick={handleIncrease}>+</button>
                 </div>
                 <br />
                 <button onClick={handleAdd}>Add to Cart</button>
