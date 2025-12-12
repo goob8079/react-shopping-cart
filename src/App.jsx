@@ -42,25 +42,30 @@ function App() {
 
   // using Outlet to provide props (outlet context) to children (rest of the pages)
   return (
-    <>
+    <div className={styles.layout}>
       <nav className={styles.navContainer}>
           <Link to='/homepage'>Homepage</Link>
           <Link to='/shop'>Shop</Link>
           <Link to='/cart'>Cart</Link>
       </nav>
-      <Outlet 
-        context={{
-          products,
-          error,
-          loading,
-          handleAddToCart,
-          cart,
-          setCart,
-          handleDeleteFromCart,
-          totalCostCalculation
-        }}
-      />
-    </>
+      <main className={styles.main}>
+        <Outlet 
+          context={{
+            products,
+            error,
+            loading,
+            handleAddToCart,
+            cart,
+            setCart,
+            handleDeleteFromCart,
+            totalCostCalculation
+          }}
+        />
+      </main>
+      <footer className={styles.footer}>
+          <p>Source Code: <a href="https://github.com/goob8079/react-shopping-cart">Here</a></p>
+      </footer>
+    </div>
   );
 }
 
