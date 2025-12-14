@@ -1,10 +1,11 @@
 import { Link, useOutletContext } from 'react-router';
 import styles from './Homepage.module.css';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 
+
 export default function Homepage() {
-    const { products, handleAddToCart } = useOutletContext();
+    const { products, handleAddToCart, loading, error } = useOutletContext();
 
     // generate 3 random products to display as ProductCard components
     const randomProducts = useMemo(() => {
@@ -15,6 +16,9 @@ export default function Homepage() {
         
         return shuffled.slice(0, 3);
     }, [products]);
+    
+    if (loading) return <p className={styles.loading}>Loading...</p>;
+    if (error) return <p className={styles.error}>A Network error was encountered</p>;
 
     return (
         <div className={styles.homepage}>

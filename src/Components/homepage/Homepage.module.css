@@ -1,12 +1,15 @@
-.homepage {
-    
-}
-
 .titleContainer {
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     max-width: 100%;
     padding: 8px;
     background-color: #d6ebff;
+}
+
+.loading, .error {
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh;
+    font-size: 100px;
+    text-align: center;
 }
 
 .featuredTitle {

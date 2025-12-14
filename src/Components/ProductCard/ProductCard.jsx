@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './ProductCard.module.css';
 
-
 export default function ProductCard({ product, handleAddToCart }) {
     const [amount, setAmount] = useState(1);
     const [showOverlay, setShowOverlay] = useState(false);
