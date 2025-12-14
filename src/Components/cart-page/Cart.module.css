@@ -1,6 +1,6 @@
 .cartPage {
     display: flex; flex-direction: column; justify-content: center; align-items: center;
-    width: 100%; height: 100vh;
+    width: 100%; min-height: 100%;
 }
 
 .cart {
@@ -12,7 +12,9 @@
 .cartList {
     display: grid; justify-content: center; gap: 12px;
     grid-template-columns: repeat(auto-fit, minmax(15%, 1fr));
+    padding: 0;
     text-align: center;
+    max-height: inherit;
 }
 
 .cartItem {
@@ -26,6 +28,7 @@
 
     img {
         width: 60%;
+        object-fit: contain;
     }
 }
 
@@ -34,6 +37,10 @@
 
     .quantity {
         display: flex; justify-content: center; align-items: center; gap: 12px;
+    }
+
+    button:hover {
+        cursor: pointer;
     }
 }
 
@@ -44,12 +51,19 @@
 
     button {
         width: 10%; height: 40px;
+        text-align: center;
+    }
+    button:hover {
+        cursor: pointer;
     }
 }
 
 .removeBtn {
     display: flex; justify-content: center; align-items: center; gap: 4px;
     text-align: center;
+}
+.removeBtn:hover {
+    cursor: pointer;
 }
 
 .overlay {
@@ -67,4 +81,29 @@
 .closeBtn:hover {
   color: orange;
   cursor: pointer;
+}
+
+@media (max-width: 500px) {
+    .cartList {
+        display: grid; justify-content: center; gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+        text-align: center;
+    }
+
+    .popup {
+        width: 60%;
+        display: flex; justify-content: center; align-items: center; gap: 12px;
+    }
+
+    .closeBtn {
+        font-size: 16px;
+    }
+
+    .checkout {
+
+        button {
+            width: 30%;
+            text-align: center;
+        }
+    }
 }
