@@ -1,6 +1,7 @@
 <h1>TOP Shopping Cart Project</h1>
 This is a website made with React. <br />
 I decided to use Bun as the package manager, and to run the backend, since at the moment npm is having an issue with malware.
+The website was deployed with Vercel. 
 
 <h2>Tools</h2>
 <ul>
