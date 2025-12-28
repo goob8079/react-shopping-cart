@@ -76,12 +76,12 @@ export default function Cart() {
                         </ul>
                         <div className={styles.checkout}>
                             <div className='checkout-total'>
-                                <p className='total'>Total Cost: ${totalCostCalculation()}</p>
+                                <p className='total'>Total Cost: ${totalCostCalculation}</p>
                             </div>
                             {/* have button disabled when the cart length or total cost = 0 */}
                             <button 
                                 className='checkout-btn' 
-                                disabled={cart.length === 0 || totalCostCalculation() === 0}
+                                disabled={cart.length === 0 || totalCostCalculation === 0}
                                 onClick={handleCheckout}
                             >
                                 Purchase Items

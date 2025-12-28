@@ -13,4 +13,4 @@ test('renders with outlet context', () => {
     render(<ShopPage />)
 
     expect(screen.getByText('apple')).toBeInTheDocument()
-})
+});

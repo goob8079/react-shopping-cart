@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, Outlet } from 'react-router';
 import useProductAPI from './hooks/useProductsAPI';
 import styles from './App.module.css';
@@ -36,9 +36,10 @@ function App() {
     setCart(updatedCart);
   }
 
-  function totalCostCalculation() {
+  // changed from function to useMemo to increase performance
+  const totalCostCalculation = useMemo(() => {
     return cart.reduce((total, item) => total + item.product.price * item.amount, 0).toFixed(2);
-  }
+  }, [cart]); 
 
   // using Outlet to provide props (outlet context) to children (rest of the pages)
   return (
@@ -58,7 +59,7 @@ function App() {
             cart,
             setCart,
             handleDeleteFromCart,
-            totalCostCalculation
+            totalCostCalculation,
           }}
         />
       </main>
